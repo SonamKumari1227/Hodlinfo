@@ -39,7 +39,7 @@ app.get('/', async (req, res) => {
 });
   */
 // Fetch data from MongoDB and render the view
-app.get('/api', async (req, res) => {
+app.get('/', async (req, res) => {
     try {
       // Fetch data from MongoDB
       const tickers = await TickerModel.find().limit(10).exec();
