@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HODLINFO</title>
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <style>
+   body {
+  background-color: #1a1a2e;
+  color: #fff;
+}
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.card {
+  width: 30%;
+  margin-bottom: 1rem;
+  background-color: #012a3d;
+  color: #eff9fc;
+  border: 1px solid #5a6a89;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(240, 233, 233, 0.2);
+  transform: perspective(500px) rotateX(10deg); /* 3D look with rotation */
+  transition: transform 0.3s ease-in-out;
+}
+
+.card:hover {
+  transform: perspective(500px) rotateX(0deg); /* Reset rotation on hover */
+}
+
+.navbar {
+  background-color: #012a3e;
+  box-shadow: 0 4px 8px rgba(240, 233, 233, 0.2);
+  animation: fadeInDown 0.8s ease-in-out;
+}
+
+.navbar-brand {
+  font-weight: bold;
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+  </style>
+</head>
+<body>
+
+
+  <!-- As a heading -->
+  <nav class="navbar bg-body-tertiary">
+    <div class="container-fluid">
+      <span class="navbar-brand mb-0 h1"><h1>HODLINFO</h1></span>
+    </div>
+  </nav>
+  <!-- Your content goes here -->
+  <div class="container">
+  
+
+    <!-- Your dynamic content goes here -->
+    <% data.forEach(ticker => { %>
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title"><%= ticker.symbol %></h5>
+          <p class="card-text">
+            <strong>Last Price:</strong> <%= ticker.lastPrice %><br>
+            <strong>Name:</strong> <%= ticker.name %><br>
+            <strong>Base Unit:</strong> <%= ticker.base_unit %><br>
+            <strong>Buy Price:</strong> <%= ticker.buy %><br>
+            <strong>Sell Price:</strong> <%= ticker.sell %><br>
+            <strong>Volume:</strong> <%= ticker.volume %>
+          </p>
+        </div>
+      </div>
+    <% }); %>
+
+  </div>
+
+  <!-- Bootstrap JS and dependencies -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.0.8/dist/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</body>
+</html>
